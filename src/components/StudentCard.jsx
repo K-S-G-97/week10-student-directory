@@ -1,4 +1,4 @@
-function StudentCard({ name, major, score }) {
+function StudentCard({ id, name, major, score, onDelete }) {
   const passed = score >= 60;
 
   return (
@@ -22,6 +22,13 @@ function StudentCard({ name, major, score }) {
         <div className={passed ? "status passed" : "status failed"}>
           {passed ? "✓ Passed" : "✕ Failed"}
         </div>
+
+        <button
+          className="delete-btn"
+          onClick={() => onDelete(id)}
+        >
+          Delete Student
+        </button>
       </div>
     </div>
   );
